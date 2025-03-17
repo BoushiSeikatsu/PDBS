@@ -1,6 +1,8 @@
 -- 3.1.1
 SET AUTOTRACE ON;
+set feedback on SQL_ID;
 SELECT * FROM OrderItem WHERE unit_price > 2189000000 ;
+set feedback off SQL_ID;
 SET AUTOTRACE OFF;
 
 select * from "Order";
@@ -53,7 +55,7 @@ select executions as executions,
  du.username, sql_text
 from v$sql
 inner join dba_users du on du.user_id=parsing_user_id
-where sql_id='faq4jrjp1n1fm' and plan_hash_value=4294024870;
+where sql_id='495nagftk4uu1' and plan_hash_value=4294024870;
 
 
 BEGIN
@@ -88,6 +90,11 @@ begin
   end loop;
 end;
 
-PrintQueryStat('ff5spha9pjuyu', 4294024870);
+exec PrintQueryStat('495nagftk4uu1', 4294024870);
 
 DELETE FROM OrderItem where MOD( idOrder , 2)=0;
+
+select count(*) from OrderItem;
+
+alter table OrderItem enable row movement;
+alter table OrderItem shrink space;
