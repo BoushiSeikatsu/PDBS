@@ -38,6 +38,8 @@ insert into "Order" select * from ProductOrder."Order";
 insert into OrderItem select * from ProductOrder.OrderItem;
 commit;
 
+delete from OrderItem;
+
 select * from Customer
 
 exec PrintPages_unused_space('CUSTOMER','DUB0074', 'TABLE');

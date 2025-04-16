@@ -63,6 +63,8 @@ BEGIN
 END
 ;
 
+select avg(unit_price) from OrderItem;
+
 create or replace procedure PrintQueryStat(p_sqlId varchar2, p_planHash int)
 as
 begin
